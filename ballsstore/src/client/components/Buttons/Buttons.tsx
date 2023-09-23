@@ -1,27 +1,17 @@
 import React from 'react';
-import {StyledFilledButtons, StyledOutlinedButtons} from "./styles"
-import { IStyledComponent } from 'styled-components';
-
+import { StyledButtons } from "./styles"
 
 interface IButtonsProps{
    content?: string,
-   isBtnActive?: boolean,
-   variant: 'filled' | 'outlined',
-   onBtnClick?: () => void;
+
 }
 
-const buttons: Record<'filled' | 'outlined', typeof StyledOutlinedButtons<any>>= {
-   filled: StyledFilledButtons,
-   outlined: StyledOutlinedButtons,
-}
-
-const Buttons = ({content = 'Click me', isBtnActive = true, variant, onBtnClick}: IButtonsProps) => {
-  const Component = buttons[variant];
+const Buttons = ({content = 'Click me'}: IButtonsProps) => {
    
    return (
-      <Component $active={isBtnActive} onClick={onBtnClick}>
+      <StyledButtons>
          {content}
-      </Component>
+      </StyledButtons>
 
    );
 };

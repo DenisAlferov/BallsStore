@@ -7,14 +7,33 @@ export enum ThemeModes {
 const palettes = {
    [ThemeModes.LIGHT]:{
       primary: {
-         main: "none",
-
-      }
+         main: "white",
+      },
+      sub:{
+         main: "#F4EEFD",
+      },
+      text: {
+         main: "black",
+      },
+      btn: {
+         main: "white",
+      },
    },
-   [ThemeModes.DARK]:{primary: {
+
+   [ThemeModes.DARK]:{
+      primary: {
          main: "#313037",
-         
-      }},
+      },
+      sub:{
+         main: "#313037",
+      },
+      text: {
+         main: "#A8A8A8;",
+      },
+      btn: {
+         main: "#A8A8A8",
+      },
+   },
 }
 
 

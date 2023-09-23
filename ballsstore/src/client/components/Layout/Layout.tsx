@@ -1,30 +1,33 @@
-import React, {FC, PropsWithChildren} from 'react';
+import React, {FC, PropsWithChildren, useState} from 'react';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
-import { ContentWrapper } from './styles';
-import Title from '../Title/Title';
-import BookItem from '../BookItem/BookItem';
+import { BodyWrapper, ContentWrapper, Pagination, StyledNext, StyledPagination, StyledPrev } from './styles';
+import { Route, Routes } from 'react-router-dom';
+import MainPage from '../../../pages/MainPage/MainPage';
+import LoginPage from '../../../pages/LoginPage/LoginPage';
+import ForgotPasswordPage from '../../../pages/ForgotPasswordPage/ForgotPasswordPage';
+import FavouritePage from '../../../pages/FavouritePage/FavouritePage';
+import CardPage from '../../../pages/CardPage/CardPage';
+import OneBookPage from '../../../pages/OneBookPage/OneBookPage';
+import { userRoutes } from '../../userRoutes';
 
 
 
-const Layout: FC<PropsWithChildren> = ({children}) => {
+const Layout: FC<PropsWithChildren> = () => {
+
+
    return (
-      <div>
+      <BodyWrapper>
          <Header></Header>
-         <Title/>
-         <ContentWrapper>
-            <BookItem/>
-            <BookItem/>
-            <BookItem/>
-            <BookItem/>
-            <BookItem/>
-            <BookItem/>
-            
+         <Routes>
+            {userRoutes.map(({path, id, Component, componentAdditionalProps}) => {
+               return <Route key={id} path={path} element={<Component {...componentAdditionalProps}/>}/>
+            })}
 
-           {children}
-         </ContentWrapper>
+
+         </Routes>
          <Footer/>
-      </div>
+      </BodyWrapper>
    );
 };
 

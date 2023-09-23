@@ -3,17 +3,18 @@ import { StyledInput } from './styles';
 import { StyledIcon } from '../CustomIcon/styles';
 
 type CustomInputProps = {
-   inputLabel: string;
-   inputType: "text" | "password" | "email";
-   placeholder: string;
-}
+   label?: string;
+   type?: "text" | "password" | "email";
+   placeholder?: string;
+   value?: string;
+   onChange?: () => void
+   }
 
-const CustomInput : FC<CustomInputProps> = ({inputLabel, inputType, placeholder}) => {
+const CustomInput : FC<CustomInputProps> = ({label, type, placeholder, value, onChange}) => {
    return (
       <label>
-         {inputLabel}
-         <StyledInput type={inputType} placeholder={placeholder} />
-         <StyledIcon src={require("../../assets/img/Search.svg").default} alt="img" />
+         {label}
+         <StyledInput type={type} placeholder={placeholder} value={value} onChange={onChange} />
       </label>
    );
 };

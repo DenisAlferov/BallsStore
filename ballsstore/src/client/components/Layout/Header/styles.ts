@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledHeader = styled("header")`
 display: flex;
 justify-content: space-between;
-background-color: none;
+background-color: ${props => props.theme.palette.primary.main};
 border-bottom: 1px solid #E7E7E7;
 height: 60px;
 max-width: 1200px;
