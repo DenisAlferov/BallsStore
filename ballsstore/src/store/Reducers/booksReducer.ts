@@ -3,7 +3,7 @@ import { Book } from "../../types";
 import { actionTypes } from "../Actions/themeActions";
 import { baseActionTypeWithPayload } from "../Actions/types";
 
-type defaultStateType = Record<string, Book[]>;
+type defaultStateType = Record<"allBooks" | "favorite" | "inCard", Book[]>;
 
 
 const defaultState: defaultStateType = {
@@ -18,14 +18,20 @@ export const booksReducer = (state = defaultState, action: baseActionTypeWithPay
       case actionTypes.SET_BOOKS:
      
          if (Array.isArray(action.payload)) {
-            return { ...state, allBooks: [...action.payload] };
+            return { ...state, allBooks: [...action.payload] as Book[] };
          }
             return state;
        
       case actionTypes.ADD_TO_FAVORITE:
-      return {...state, favorite: [...state.favorite, action.payload]};
+      return {...state, favorite: state.favorite.map((book) =>
+      book.isbn13 === action.payload 
+         ? {...book, isFavourite: !book.isFavourite}
+         : book,
+      )};
+
+
       case actionTypes.ADD_TO_CARD:
-      return {...state, inCard: [...state.inCard, action.payload]};
+      return {...state, inCard: [...state.inCard, action.payload] as Book[]  };
       default:
       return state;
    }

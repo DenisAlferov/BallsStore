@@ -1,56 +1,27 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { BasicRating } from './Rating';
 import { StyledBookAuthors, StyledBookItem, StyledBookName, StyledImg, StyledImgWrapper, StyledPriceWrapper } from './styles';
+import { IBook, Book as BookType } from '../../../types';
+
+ export type ResponseTypes = {
+	error: string,
+	total: string,
+	books: IBook[];
+	  };
 
 
- export interface IBook {
-	title: string;
-	subtitle: string;
-	isbn13: string;
-	price: string;
-	image: string;
-	url: string;
-	authors?: string;
-	publisher?: string;
-	isbn10?: string;
-	pages?: string;
-	year?: string;
-	rating?: string;
-	desc?: string;
-	error?: string;
-	isFavourite?: boolean;
-	amount?: number;
-}
-export type Book = {
-	title: string;
-	subtitle: string;
-	isbn13: string;
-	price: string;
-	image: string;
-	url: string;
-	authors?: string;
-	publisher?: string;
-	isbn10?: string;
-	pages?: string;
-	year?: string;
-	rating?: string;
-	desc?: string;
-	error?: string;
-	isFavourite?: boolean;
-	amount?: number;
-}
 
-const BookItem = (book: IBook) => {
+const BookItem: FC<{bookData: BookType}> = ({bookData}) => {
    return (
       <StyledBookItem>
          <StyledImgWrapper>
-            <StyledImg src={book.image} />
+            <StyledImg src={bookData.image} />
          </StyledImgWrapper>
-         <StyledBookName>{book.title}</StyledBookName>
-         <StyledBookAuthors>{book.authors}</StyledBookAuthors>
+         <StyledBookName>{bookData.title}</StyledBookName>
+         <StyledBookAuthors>{bookData.authors}</StyledBookAuthors>
          <StyledPriceWrapper>
             <div>
-               {book.price}
+               {bookData.price}
 					ййццуййцуйцйцк
             </div>
             <div>

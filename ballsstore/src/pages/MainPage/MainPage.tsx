@@ -1,42 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import BookItem, { IBook } from '../../client/components/BookItem/BookItem';
+import BookItem, {ResponseTypes } from '../../client/components/BookItem/BookItem';
 import Title from '../../client/components/Title/Title';
 import { ContentWrapper, Pagination, StyledNext, StyledPagination, StyledPrev } from '../../client/components/Layout/styles';
 import Subscribe from '../../client/components/Subscribe/Subscribe';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { useActions } from '../../store/hooks/useActiions';
+import { Dispatch } from "redux"; 
+import { booksAction  } from '../../store/Actions/booksActions';
+import { useTypeSelector } from '../../store/hooks/useTypeSelector';
+import { IBook } from '../../types';
+
 
 
 const MainPage = () => {
-  
-   
-type ResponseType = {
-   books: IBook[];
-  };
-  
-  const getBooks = async (): Promise<ResponseType> => {
-   return (await fetch('https://api.itbook.store/1.0/new')).json();
-  };
-  
+   const books = useTypeSelector((state) => state.books.allBooks)
+   const favoriteBooks = useTypeSelector((state) => state.books.allBooks.filter((book) => book.isFavourite))
 
-
-
-   const [books, setBooks] = useState(null);
-
-  // const getBook = async () => {
-   //   const responce = await fetch("https://api.itbook.store/1.0/new")
-     // const responce = await fetch("https://studapi.teachmeskills.by/blog/posts/?limit=1")
-
-
-    //  return responce.json();
-  // };
-
+   const getBooks = async (): Promise<ResponseTypes> => {
+      return await (await fetch('https://api.itbook.store/1.0/new')).json();
+   };
+   const getBooksAsync = () => {
+         return (dispatch: Dispatch) => {
+         getBooks().then((results) => dispatch(booksAction.setBooks(results.books)))} 
+   }  
    useEffect(() => {
-      getBooks().then(({results}) => {
-         setBooks(results);
-      })
-   }, [])
-   
+         getBooksAsync() 
+        }, [])
+       
    return (
       <div>
 
@@ -46,13 +37,13 @@ type ResponseType = {
 
    
    {books && books.map((book: IBook) => <BookItem 
-                     title={book.title}
+       title={book.title}              
        subtitle={book.subtitle}
        isbn13={book.isbn13}
        price={book.price}
        image={book.image}
        url={book.url}
-       key={book.isbn13 + book.url}/>)}
+   key={book.isbn13 + book.url}/>)}
 
 </ContentWrapper>
 <StyledPagination> 
