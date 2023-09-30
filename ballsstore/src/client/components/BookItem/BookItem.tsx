@@ -21,6 +21,24 @@ import { StyledBookAuthors, StyledBookItem, StyledBookName, StyledImg, StyledImg
 	isFavourite?: boolean;
 	amount?: number;
 }
+export type Book = {
+	title: string;
+	subtitle: string;
+	isbn13: string;
+	price: string;
+	image: string;
+	url: string;
+	authors?: string;
+	publisher?: string;
+	isbn10?: string;
+	pages?: string;
+	year?: string;
+	rating?: string;
+	desc?: string;
+	error?: string;
+	isFavourite?: boolean;
+	amount?: number;
+}
 
 const BookItem = (book: IBook) => {
    return (
@@ -29,10 +47,11 @@ const BookItem = (book: IBook) => {
             <StyledImg src={book.image} />
          </StyledImgWrapper>
          <StyledBookName>{book.title}</StyledBookName>
-         <StyledBookAuthors></StyledBookAuthors>
+         <StyledBookAuthors>{book.authors}</StyledBookAuthors>
          <StyledPriceWrapper>
             <div>
                {book.price}
+					ййццуййцуйцйцк
             </div>
             <div>
             <BasicRating/>

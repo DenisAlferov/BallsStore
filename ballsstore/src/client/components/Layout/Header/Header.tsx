@@ -1,12 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {StyledHeader} from "./styles"
 import CustomInput from '../../CustomInput/CustomInput';
-import { StyledIcon } from '../../CustomIcon/styles';
 import { FormControlLabel, IconButton, Switch, styled } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { ThemeContext } from '../../../../App';
+import { useDispatch, useSelector } from 'react-redux';
+import { actionTypes, toggleThemeAction } from '../../../../store/Actions/themeActions';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
    width: 62,
@@ -55,17 +56,29 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
    },
  }));
 
+ 
+
 
 const Header = () => {
-  const toggleTheme = useContext(ThemeContext)
+
+  const dispatch = useDispatch();
+  const themeMode = useSelector((state) => state.theme.themeMode);
+
+  const toggleTheme = () => {
+    dispatch(toggleThemeAction(themeMode))
+  }
+
+
+
    return (
       <StyledHeader>
          <h1>BOOKSTORE</h1>
          <CustomInput label={''} type={'text'} placeholder={'Search'}></CustomInput>
          <div>
+
             <IconButton> <FavoriteBorderIcon fontSize='small'/> </IconButton>
             <IconButton> <ShoppingCartIcon fontSize='small'/> </IconButton>
-            <IconButton> <PersonIcon fontSize='small'/> </IconButton>
+            <IconButton> <PersonIcon fontSize='small'/>  </IconButton>
             <FormControlLabel control={<MaterialUISwitch onChange={toggleTheme} sx={{ m: 1 }} defaultChecked />} label="" />
          </div>
       </StyledHeader>

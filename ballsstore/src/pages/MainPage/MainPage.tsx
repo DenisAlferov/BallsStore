@@ -6,21 +6,33 @@ import Subscribe from '../../client/components/Subscribe/Subscribe';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-const MainPage = () => {
 
+const MainPage = () => {
+  
    
+type ResponseType = {
+   books: IBook[];
+  };
+  
+  const getBooks = async (): Promise<ResponseType> => {
+   return (await fetch('https://api.itbook.store/1.0/new')).json();
+  };
+  
+
+
+
    const [books, setBooks] = useState(null);
 
-   const getBook = async () => {
-     // const responce = await fetch("https://api.itbook.store/1.0/new")
-     const responce = await fetch("https://studapi.teachmeskills.by/blog/posts/?limit=1")
+  // const getBook = async () => {
+   //   const responce = await fetch("https://api.itbook.store/1.0/new")
+     // const responce = await fetch("https://studapi.teachmeskills.by/blog/posts/?limit=1")
 
 
-      return responce.json();
-   };
+    //  return responce.json();
+  // };
 
    useEffect(() => {
-      getBook().then(({results}) => {
+      getBooks().then(({results}) => {
          setBooks(results);
       })
    }, [])
@@ -31,7 +43,9 @@ const MainPage = () => {
 <Title/>
 
 <ContentWrapper>
-{books && books.map((book: IBook) => <BookItem 
+
+   
+   {books && books.map((book: IBook) => <BookItem 
                      title={book.title}
        subtitle={book.subtitle}
        isbn13={book.isbn13}
@@ -39,6 +53,7 @@ const MainPage = () => {
        image={book.image}
        url={book.url}
        key={book.isbn13 + book.url}/>)}
+
 </ContentWrapper>
 <StyledPagination> 
    <StyledPrev>
@@ -57,4 +72,4 @@ const MainPage = () => {
    );
 };
 
-export default MainPage;
+export default MainPage;  
