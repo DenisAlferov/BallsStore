@@ -1,7 +1,8 @@
 import React, { FC, useEffect, useState } from 'react';
 import { OneBookWrapper } from './styles';
-import BookItem, { Book } from '../../client/components/BookItem/BookItem';
+import BookItem from '../../client/components/BookItem/BookItem';
 import CircularProgress from '@mui/material/CircularProgress';
+import { Book } from '../../types';
 
 interface IOneBookProps {
    isbn13: string;

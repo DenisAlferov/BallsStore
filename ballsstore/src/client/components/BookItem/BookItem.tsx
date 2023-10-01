@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { BasicRating } from './Rating';
-import { StyledBookAuthors, StyledBookItem, StyledBookName, StyledImg, StyledImgWrapper, StyledPriceWrapper } from './styles';
+import { StyledBookAuthors, StyledBookItem, StyledBookName, StyledImg, StyledImgWrapper, StyledPrice, StyledPriceWrapper } from './styles';
 import { IBook, Book as BookType } from '../../../types';
 
  export type ResponseTypes = {
@@ -20,15 +20,16 @@ const BookItem: FC<{bookData: BookType}> = ({bookData}) => {
          <StyledBookName>{bookData.title}</StyledBookName>
          <StyledBookAuthors>{bookData.authors}</StyledBookAuthors>
          <StyledPriceWrapper>
-            <div>
+            <StyledPrice>
                {bookData.price}
-					ййццуййцуйцйцк
-            </div>
+				
+            </StyledPrice>
             <div>
             <BasicRating/>
             </div>
          </StyledPriceWrapper>
       </StyledBookItem>
+      
    );
 };
 

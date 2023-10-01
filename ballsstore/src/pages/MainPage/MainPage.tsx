@@ -30,17 +30,7 @@ const MainPage = () => {
 <Title/>
 
 <ContentWrapper>
-
-   
-   {books && books.map((book: IBook) => <BookItem 
-       title={book.title}              
-       subtitle={book.subtitle}
-       isbn13={book.isbn13}
-       price={book.price}
-       image={book.image}
-       url={book.url}
-   key={book.isbn13 + book.url}/>)}
-
+   {books && books.map((book: IBook) => <BookItem bookData={book} />)}
 </ContentWrapper>
 <StyledPagination> 
    <StyledPrev>
