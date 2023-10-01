@@ -8,25 +8,21 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useActions } from '../../store/hooks/useActiions';
 import { Dispatch } from "redux"; 
 import { booksAction  } from '../../store/Actions/booksActions';
-import { useTypeSelector } from '../../store/hooks/useTypeSelector';
+import { useTypedSelector } from '../../store/hooks/useTypeSelector';
 import { IBook } from '../../types';
 
 
 
 const MainPage = () => {
-   const books = useTypeSelector((state) => state.books.allBooks)
-   const favoriteBooks = useTypeSelector((state) => state.books.allBooks.filter((book) => book.isFavourite))
+   const books = useTypedSelector((state) => state.books.allBooks)
+   const favoriteBooks = useTypedSelector((state) => state.books.allBooks.filter((book) => book.isFavourite))
 
-   const getBooks = async (): Promise<ResponseTypes> => {
-      return await (await fetch('https://api.itbook.store/1.0/new')).json();
-   };
-   const getBooksAsync = () => {
-         return (dispatch: Dispatch) => {
-         getBooks().then((results) => dispatch(booksAction.setBooks(results.books)))} 
-   }  
+
+   const { getBooksAsync } = useActions();
+
    useEffect(() => {
-         getBooksAsync() 
-        }, [])
+    getBooksAsync();
+   }, []);
        
    return (
       <div>
