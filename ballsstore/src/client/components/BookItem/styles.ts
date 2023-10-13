@@ -1,56 +1,97 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const getRandomStart = (min:number, max:number) => {
+export const getRandomStart = (min:number, max:number) => {
    return Math.floor(Math.random() * (max - min)) + min;
 };
 
-const backgroundColorSS = () => {
+export const backgroundColorSS = () => {
    const myColor = 'rgb('+getRandomStart(0,255)+', '+getRandomStart(0,255)+', '+getRandomStart(0,255)+', '+0.5+')';
    return myColor
 };
 
-export const StyledBookItem = styled("div")`
-border: 1px solid black;
-width: 32%;
-height: 450px;
-padding: 15px;
-position:relative;
-`
+export const StyledItem = styled.div`
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	align-self: stretch;
+	background-color: ${props => props.theme.palette.primary.main};
+	color: ${props => props.theme.palette.btn.main};
 
-export const StyledImgWrapper = styled("div")`
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: ${backgroundColorSS};
-`
+	& a {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+`;
 
-export const StyledImg = styled("img")`
-height: 264px;
-width: 226px;
-padding: 20px;
-`
+export const StyledImg = styled.div`
+	display: block;
+	width: 100%;
+	background-color: ${backgroundColorSS};
 
-export const StyledBookName = styled("h3")`
-font-size: 20px;
-font-weight: 700;
-line-height: 32px;
-letter-spacing: 0em;
-text-align: center;
-text-transform: uppercase;
-height: 110px;
-`
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-export const StyledBookAuthors = styled("h4")`
-`
+	@media (max-width: 950px) {
+		width: 90%;
+	}
+`;
 
-export const StyledPrice = styled("p")`
-`
+export const Image = styled.img`
+display: block;
+`;
 
-export const StyledPriceWrapper = styled("div")`
-display: flex;
-align-items: flex-end;
-justify-content: space-between;
+export const StyledTitle = styled.h2`
+	width: 90%;
+	color: ${props => props.theme.palette.text.main};
+	font-family: ''Bebas Neue', sans-serif';
+	text-transform: uppercase;
+	padding: 10px 0;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 32px;
+	height: 100px;
 
-font-weight: 700;
+	@media (max-width: 950px) {
+		font-size: 18px;
+	}
+`;
 
-`
+export const StyledInfo = styled.div`
+	width: 100%;
+
+	@media (max-width: 950px) {
+		width: 90%;
+	}
+`;
+
+export const PriceContainer = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px ;
+`;
+
+export const Price = styled.div`
+   color: ${props => props.theme.palette.text.main};
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 32px;
+
+	@media (max-width: 950px) {
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 24px;
+	}
+`;
+
+export const PriceDiv = styled.div`color: black;`;

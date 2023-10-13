@@ -1,8 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
-import Typography from '@mui/material/Typography';
-
 
 export  const BasicRating = () => {
   const [value, setValue] = React.useState<number | null>(4);
@@ -10,7 +8,6 @@ export  const BasicRating = () => {
   return (
     <Box
       sx={{'& > legend': { mt: 2 }, }}>
-      <Typography component="legend"></Typography>
       <Rating
         name="simple-controlled"
         value={value}

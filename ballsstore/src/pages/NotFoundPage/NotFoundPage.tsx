@@ -1,11 +1,8 @@
 import React from 'react';
+import { Container } from './styles';
 
 const NotFoundPage = () => {
-   return (
-      <div>
-         Not Found
-      </div>
-   );
+	return <Container>HAHA LOOOSER</Container>;
 };
 
 export default NotFoundPage;

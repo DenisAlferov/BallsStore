@@ -1,36 +1,33 @@
-import React, { FC } from 'react';
+import React from 'react';
+import {	Price, StyledImg, StyledInfo, StyledItem, StyledTitle, Image, PriceContainer, PriceDiv } from './styles';
+import { IBook } from '../../../types';
+import { useActions } from '../../../store/hooks/useActions';
+import { NavLink } from 'react-router-dom';
 import { BasicRating } from './Rating';
-import { StyledBookAuthors, StyledBookItem, StyledBookName, StyledImg, StyledImgWrapper, StyledPrice, StyledPriceWrapper } from './styles';
-import { IBook, Book as BookType } from '../../../types';
 
- export type ResponseTypes = {
-	error: string,
-	total: string,
-	books: IBook[];
-	  };
+const BookItem = (book: IBook) => {
+	const { getSelectedBookAsync } = useActions();
+	const getSelectedBook = () => {
+		getSelectedBookAsync(book.isbn13);
+	};
 
+	return (
+		<StyledItem onClick={() => getSelectedBook()}>
+			<NavLink to={`/book/${book.isbn13}`}>
+				<StyledImg>
+					<Image src={book.image} />
+				</StyledImg>
+				<StyledTitle>{book.title}</StyledTitle>
+				<StyledInfo>
 
-
-const BookItem: FC<{bookData: BookType}> = ({bookData}) => {
-   return (
-      <StyledBookItem>
-         <StyledImgWrapper>
-            <StyledImg src={bookData.image} />
-         </StyledImgWrapper>
-         <StyledBookName>{bookData.title}</StyledBookName>
-         <StyledBookAuthors>{bookData.authors}</StyledBookAuthors>
-         <StyledPriceWrapper>
-            <StyledPrice>
-               {bookData.price}
-				
-            </StyledPrice>
-            <div>
-            <BasicRating/>
-            </div>
-         </StyledPriceWrapper>
-      </StyledBookItem>
-      
-   );
+					<PriceContainer>
+						<PriceDiv><BasicRating/></PriceDiv>
+						<Price>{book.price}</Price>
+					</PriceContainer>
+				</StyledInfo>
+			</NavLink>
+		</StyledItem>
+	);
 };
 
 export default BookItem;
