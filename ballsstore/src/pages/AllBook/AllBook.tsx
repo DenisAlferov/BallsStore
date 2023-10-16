@@ -5,6 +5,7 @@ import { useActions } from '../../store/hooks/useActions';
 import { IBook } from '../../types';
 import { useTypedSelector } from '../../store/hooks/useTypedSelector';
 import SubscribeInput from '../../client/components/SubscribeInput/SubscribeInput';
+import { StyledP } from '../Cart/styles';
 
 const AllBook = () => {
 	const AllBooks = useTypedSelector((state) => state.allBooks.allBooks);
@@ -47,7 +48,7 @@ const AllBook = () => {
 			) : (
 				<div>
 					<Title> "{value}" Search results</Title>
-					<p>Found {total} books</p>
+					<StyledP>Found {total} books</StyledP>
 					<BookContainer>
 						{SearchBooks &&
 							SearchBooks.map((book: IBook) => (

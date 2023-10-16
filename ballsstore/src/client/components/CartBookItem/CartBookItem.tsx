@@ -1,6 +1,6 @@
 import React from 'react';
 import {Price, StyledImg, StyledInfo, StyledItem, StyledTitle, Image, PriceContainer,
-	PriceDiv, StyledCartBookInfo, CartBookContainer, AmountContainer } from './styles';
+	PriceDiv, StyledCartBookInfo, CartBookContainer, AmountContainer, AmountDiv } from './styles';
 import { IBook } from '../../../types';
 import { Add, Close, Remove } from '@mui/icons-material';
 import { useActions } from '../../../store/hooks/useActions';
@@ -16,10 +16,10 @@ const CartBookItem = (book: IBook) => {
 	const removeBook = () => {
 		removeBookFromCart(book.isbn13);
 	};
-	const plusAmount = () => {
+	const addAmount = () => {
 		plusAmountToCart(book.isbn13);
 	};
-	const minusAmount = () => {
+	const removeAmount = () => {
 		if (cartBook!.amount === 1) {
 			removeBookFromCart(book.isbn13);
 		} else {
@@ -46,11 +46,11 @@ const CartBookItem = (book: IBook) => {
 							<Price>{book.price}</Price>
 						</PriceContainer>
 						<AmountContainer>
-							<IconButton onClick={minusAmount}>
+							<IconButton onClick={removeAmount}>
 								<Remove />
 							</IconButton>
-							<div>{cartBook!.amount}</div>
-							<IconButton onClick={plusAmount}>
+							<AmountDiv>{cartBook!.amount}</AmountDiv>
+							<IconButton onClick={addAmount}>
 								<Add />
 							</IconButton>
 						</AmountContainer>

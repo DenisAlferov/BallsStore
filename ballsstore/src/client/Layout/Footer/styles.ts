@@ -14,3 +14,10 @@ export const StyledFooter = styled('footer')`
 	height: 60px;
 	margin: 0 auto;
 `;
+
+
+export const StyledP = styled('p')`
+ 	color: ${props => props.theme.palette.text.main};
+	font-size: 18px;
+	font-family: 'Bebas Neue', sans-serif;
+`;

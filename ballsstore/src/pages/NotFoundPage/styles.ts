@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 	min-height: 100vh;
-	font-size: 200px;
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 40px;
 	text-align: center;
 	display: flex;
 	justify-content: center;

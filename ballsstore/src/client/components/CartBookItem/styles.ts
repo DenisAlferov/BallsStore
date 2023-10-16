@@ -92,6 +92,8 @@ export const Price = styled.div`
 `;
 
 export const PriceDiv = styled.div`
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 24px;
 	color: ${props => props.theme.palette.text.main};
 `;
 
@@ -102,4 +104,9 @@ export const AmountContainer = styled.div`
 	color: ${props => props.theme.palette.text.main};
 	justify-content: space-between;
 	align-items: center;
+`;
+export const AmountDiv = styled.div`
+	color: ${props => props.theme.palette.text.main};
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 24px;
 `;

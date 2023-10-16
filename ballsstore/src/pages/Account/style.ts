@@ -156,7 +156,8 @@ export const StyledWhiteButton = styled.button`
 `;
 export const ProfileContainer = styled.div`
 	display: flex;
-	justify-content: space-between;
+
+	flex-direction: column;
 	width: 100%;
 
 	@media (max-width: 750px) {

@@ -43,7 +43,7 @@ const FavoriteBooks = () => {
 					Please, add book to Favorites. You need to click the heart{' '}
 					<FavoriteBorder color="action" fontSize="inherit" /> on the book page.
 				</p>
-			)};
+			)}
 			<SliderTitle>Popular Books</SliderTitle>
 			<MainSlider title="Similar Books">
 				{allBooks.map((book) => (

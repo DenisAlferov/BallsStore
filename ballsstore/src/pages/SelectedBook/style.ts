@@ -173,4 +173,8 @@ export const SliderTitle = styled.div`
 
 export const StyledA = styled.a`
 	color: ${props => props.theme.palette.text.main};
+	&:hover{
+		background-color: gray;
+		border-radius: 5px;
+	}
 `;

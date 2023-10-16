@@ -1,15 +1,15 @@
 import React from 'react';
-import { StyledFooter } from './styles';
+import { StyledFooter, StyledP } from './styles';
 import ThemeToggler from '../Header/BurgerMenu/ThemeToggler/ThemeToggler';
 
 const Footer = () => {
 	return (
 		<StyledFooter>
-			<div>©2023 Bookstore</div>
+			<StyledP>©2023 Bookstore</StyledP>
 			<div>
 				<ThemeToggler />
 			</div>
-			<div>Denis Alferov</div>
+			<StyledP>Denis Alferov</StyledP>
 		</StyledFooter>
 	);
 };

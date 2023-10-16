@@ -68,7 +68,7 @@ export const Info = styled.div`
 export const InfoName = styled.div`
 
 	color: ${props => props.theme.palette.text.main};
-	font-family: 'Helios', sans-serif;
+	font-family: 'Bebas Neue', sans-serif;
 	font-size: 20px;
 	font-style: normal;
 	font-weight: 400;
@@ -76,7 +76,7 @@ export const InfoName = styled.div`
 `;
 
 export const InfoValue = styled.div`
-	font-family: 'Helios', sans-serif;
+	font-family: 'Bebas Neue', sans-serif;
 	font-size: 20px;
 	font-style: normal;
 	color: ${props => props.theme.palette.text.main};

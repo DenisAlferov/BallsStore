@@ -95,7 +95,7 @@ const Cart = () => {
 							<div>TOTAL</div>
 							<div>${totalSum.toFixed(2)} </div>
 						</TotalDiv>
-						<StyledButton onClick={handleBtnClick}>Check out</StyledButton>
+						<StyledButton onClick={handleBtnClick}>BUY NOW</StyledButton>
 					</TotalWrapper>
 				</BookContainer>
 			) : (

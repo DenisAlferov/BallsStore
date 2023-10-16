@@ -1,8 +1,15 @@
 import React from 'react';
-import { Container } from './styles';
+import { Container} from './styles';
+
 
 const NotFoundPage = () => {
-	return <Container>HAHA LOOOSER</Container>;
+	return (
+
+		<Container>
+			This page is unavailable. Maybe look for something else?
+		</Container>
+
+	)
 };
 
 export default NotFoundPage;

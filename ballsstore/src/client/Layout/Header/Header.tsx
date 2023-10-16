@@ -38,21 +38,21 @@ const Header = () => {
 				<HideIcon>
 					<IconButton onClick={deleteSelectedBook}>
 						<NavLink to="/favotite_book">
-							<FavoriteBorder color={favorite.length ? 'error' : 'action'} />
+							<FavoriteBorder color={favorite.length ? 'success' : 'action'} />
 						</NavLink>
 					</IconButton>
 				</HideIcon>
 				<HideIcon>
 					<IconButton onClick={deleteSelectedBook}>
 						<NavLink to="/cart">
-							<ShoppingBagOutlined color={cartArr.length ? 'error' : 'action'} />
+							<ShoppingBagOutlined color={cartArr.length ? 'success' : 'action'} />
 						</NavLink>
 					</IconButton>
 				</HideIcon>
 				<IconButton onClick={deleteSelectedBook}>
 					{isLoggedIn ? (
 						<NavLink to="/account">
-							<PersonOutlineOutlined color="error" />
+							<PersonOutlineOutlined color="success" />
 						</NavLink>
 					) : (
 						<NavLink to="/sign_in">
