@@ -18,7 +18,6 @@ import { allBooksSelectors } from '../../store/AllBooks/AllBooksSelector';
 import { NavLink } from 'react-router-dom';
 import { IconButton } from '@mui/material';
 import { KeyboardBackspace } from '@mui/icons-material';
-
 import CartBookItem from '../../client/components/CartBookItem/CartBookItem';
 import { useActions } from '../../store/hooks/useActions';
 
@@ -99,7 +98,7 @@ const Cart = () => {
 					</TotalWrapper>
 				</BookContainer>
 			) : (
-				<p>Your cart is empty.</p>
+				<StyledP>Your cart is empty.</StyledP>
 			)}
 		</CartContainer>
 	);

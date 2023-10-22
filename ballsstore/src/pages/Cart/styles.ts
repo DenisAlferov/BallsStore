@@ -24,7 +24,7 @@ export const ThanksPopUp = styled.div`
 	top: calc(50% - 70px);
 	left: calc(50% - 170px);
 	border: 2px solid grey;
-	box-shadow: 12px 12px 2px 1px rgba(254, 233, 226, 1);
+
 `;
 
 export const Title = styled.h2`

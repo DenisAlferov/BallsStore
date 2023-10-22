@@ -5,6 +5,7 @@ import { StyledButton, StyledForm, StyledInput, StyledLabel } from './styles';
 import { useActions } from '../../../store/hooks/useActions';
 import { useTypedSelector } from '../../../store/hooks/useTypedSelector';
 import { NavLink, useNavigate } from 'react-router-dom';
+import InputPass from '../InputPass/InputPass';
 
 const LoginForm = () => {
 	const { register, handleSubmit, formState, formState: { errors, isSubmitSuccessful }, reset } = useForm<ILogInUserData>({	defaultValues: {}	});
@@ -53,6 +54,7 @@ const LoginForm = () => {
 			</StyledLabel>
 			<StyledLabel>
 				Password:
+				{/* <InputPass/> */}
 				<StyledInput
 					{...register('password', { required: true })}
 					placeholder="Your password"

@@ -3,7 +3,10 @@ import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 
 export  const BasicRating = () => {
-  const [value, setValue] = React.useState<number | null>(4);
+  const num = () => {
+    return Math.random() * (5 - 0) + 0;
+  }
+  const [value, setValue] = React.useState<number | null>(num);
 
   return (
     <Box

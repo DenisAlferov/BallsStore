@@ -83,5 +83,7 @@ export const Price = styled.div`
 `;
 
 export const PriceDiv = styled.div`
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 24px;
 	color: ${props => props.theme.palette.text.main};
 `;

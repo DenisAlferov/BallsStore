@@ -9,6 +9,7 @@ import { IconButton } from '@mui/material';
 import { FavoriteBorder, KeyboardBackspace } from '@mui/icons-material';
 import MainSlider from '../../client/components/Slider/Slider';
 import BookItem from '../../client/components/BookItem/BookItem';
+import { StyledP } from '../Cart/styles';
 
 const FavoriteBooks = () => {
 	const favoriteBooksArr = useSelector(allBooksSelectors.getAllFavoriteSelector);
@@ -38,11 +39,11 @@ const FavoriteBooks = () => {
 						))}
 				</BookContainer>
 			) : (
-				<p>
+				<StyledP>
 					{' '}
 					Please, add book to Favorites. You need to click the heart{' '}
 					<FavoriteBorder color="action" fontSize="inherit" /> on the book page.
-				</p>
+				</StyledP>
 			)}
 			<SliderTitle>Popular Books</SliderTitle>
 			<MainSlider title="Similar Books">

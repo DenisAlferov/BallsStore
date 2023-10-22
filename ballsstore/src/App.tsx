@@ -22,6 +22,7 @@ function App() {
 	}
 
 	return (
+		
 		<ThemeProvider theme={currentTheme}>
 			<Routes>
 				<Route path="/" element={<Layout />}>

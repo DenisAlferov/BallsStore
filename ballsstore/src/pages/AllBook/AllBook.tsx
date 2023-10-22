@@ -6,6 +6,7 @@ import { IBook } from '../../types';
 import { useTypedSelector } from '../../store/hooks/useTypedSelector';
 import SubscribeInput from '../../client/components/SubscribeInput/SubscribeInput';
 import { StyledP } from '../Cart/styles';
+import InputPass from '../../client/components/InputPass/InputPass';
 
 const AllBook = () => {
 	const AllBooks = useTypedSelector((state) => state.allBooks.allBooks);
@@ -27,6 +28,7 @@ const AllBook = () => {
 
 	return (
 		<AllBookContainer>
+			{/* <InputPass/> */}
 			{value === null ? (
 				<div>
 					<Title>New Releases Books</Title>
