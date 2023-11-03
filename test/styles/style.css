@@ -1,0 +1,189 @@
+*{
+	margin:  0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style-type: none;
+	text-decoration: none;
+ 
+	font-family: 'Raleway', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 28px;
+	align-items: center;
+
+ }
+.header{
+	width: 100vw;
+	padding: 15px;
+
+	margin: 0 auto;
+	background: rgba(182, 148, 86, 0.453);
+}
+ .logo-descr{
+	color: rgb(123, 85, 16);
+ }
+ .section{
+	background: url(/test/assets/img/banner.png) no-repeat ;
+	height: 500px;
+	position: relative;
+	margin: 0 auto;
+	background-size: cover;
+	
+ }
+ .wrapper{
+	max-width: 1200px;
+	margin: 0 auto;
+ }
+ .logo{
+
+	margin: 0 auto;
+	display: flex;
+ }
+ nav {
+	display: flex;
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 0 15px;
+ }
+ .nav-list{
+	margin: 0 auto;
+	display: flex;
+
+	gap: 20px;
+}
+.nav-list-item-a{
+color: #000;
+padding: 5px;
+}
+.nav-list-item-a:active{
+color: rgb(209, 157, 89);
+border-bottom: 1px solid rgb(209, 157, 89);
+}
+h1{
+	text-align: left;
+	padding: 100px 0 0 100px;
+	color: white;
+	font-size: 32px;
+}
+.section-li-item{
+	text-align: left;
+	padding: 15px 0 0 120px;
+	color: white;
+	font-size: 20px;
+}
+.section-btn{
+	text-align: left;
+	margin: 15px 0 0  150px;
+	padding: 15px;
+	border-radius: 15px;
+	background: rgb(209, 157, 89);
+}
+.section-btn:active{
+	background: chocolate;
+}
+.span{
+	color: rgb(209, 157, 89);
+	font-size: 30px;
+}
+.p-descr{
+
+	text-align: center;
+	width: 70%;
+	margin: 50px auto 0;
+}
+.info{
+	border: 1px solid gray;
+	border-radius: 15px;
+	display: flex;
+	width: 250px;
+	height: 150px;
+	padding: 15px;
+	align-items: center;
+	text-align: center;
+	margin: 0 auto;
+}
+.info-wrapper{
+	margin-top: 50px;
+	display: flex;
+}
+.item-wrapper{
+	display: flex;
+}
+h2{
+	margin: 50px auto;
+	text-align: center;
+}
+.h5-descr{
+	text-align: center;
+	margin: 10px auto;
+}
+.item-img{
+	margin: 0 30px;
+	text-align: center;
+}
+.price{
+	margin: 0 auto;
+	text-align: center;
+	color: rgb(209, 157, 89);
+}
+
+
+
+.form-contact{
+	max-width: 1200px;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	margin: 50px auto 0;
+	border: 1px solid #BDBDBD;
+	border-radius: 20px;
+}
+.form-2{
+	width: 100%;
+}
+.registration{
+	width: 500px;
+
+}
+.message{
+	padding-top: 14px;
+	width: 50%;
+}
+
+.form{
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #BDBDBD;
+    outline: none;
+}
+.form-wrapper{
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+.send-message{
+	color: #FFFFFF;
+	background: rgb(209, 157, 89);
+	border: none;
+	width: 470px;
+	height: 60px;
+	cursor: pointer;
+	margin-bottom: 50px;
+}
+.send-message:active{
+	background: chocolate;
+}
+.text-area{
+	margin-left: 15px;
+	border:none;
+	resize: none;
+	width: 500px;
+	height: 197px;
+	border-bottom: 2px solid #BDBDBD;
+	outline: none;
+}
